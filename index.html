@@ -12,7 +12,7 @@
             --green: #0A5C36;
             --dark: #0A0A0A;
             --text: #FFFFFF;
-            --muted: #C0C0C0;
+            --text-muted: #C0C0C0;
         }
         * {
             margin: 0;
@@ -36,34 +36,35 @@
             display: flex;
             align-items: center;
             overflow: hidden;
+            padding: 60px 0;
         }
         .hero::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse at 70% 50%, rgba(10, 92, 54, 0.25), transparent 60%);
+            background: radial-gradient(ellipse at 50% 30%, rgba(10, 92, 54, 0.25), transparent 60%);
             pointer-events: none;
         }
         .hero-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 40px 30px;
+            padding: 20px 30px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: 30px;
             align-items: center;
             position: relative;
             z-index: 2;
             width: 100%;
         }
         .hero-content {
-            padding-right: 20px;
+            padding-left: 20px;
         }
         .logo {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
         .logo-name {
             font-size: 2.2rem;
@@ -74,14 +75,14 @@
         .logo-subtitle {
             font-size: 0.75rem;
             letter-spacing: 3px;
-            color: var(--muted);
+            color: var(--text-muted);
             text-transform: uppercase;
             margin-top: 4px;
         }
         .hero-title {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             font-weight: 500;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             line-height: 1.25;
         }
         .hero-title span {
@@ -89,15 +90,15 @@
         }
         .hero-desc {
             font-size: 1.05rem;
-            color: var(--muted);
-            margin-bottom: 35px;
+            color: var(--text-muted);
+            margin-bottom: 25px;
             max-width: 480px;
             font-weight: 300;
         }
         .botoes-contato {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 14px;
             width: 100%;
             max-width: 400px;
         }
@@ -106,7 +107,7 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            padding: 16px 24px;
+            padding: 14px 24px;
             border-radius: 8px;
             font-size: 1rem;
             font-weight: 600;
@@ -137,7 +138,7 @@
         .hero-image-wrapper {
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
         }
         .hero-image-frame {
             border: 3px solid var(--gold);
@@ -148,14 +149,14 @@
         }
         .hero-image {
             width: 100%;
-            max-width: 420px;
+            max-width: 400px;
             height: auto;
             border-radius: 8px;
             object-fit: cover;
             display: block;
         }
         section {
-            padding: 80px 30px;
+            padding: 70px 30px;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -180,7 +181,7 @@
             max-width: 700px;
             margin: 0 auto 24px;
             font-size: 1.05rem;
-            color: var(--muted);
+            color: var(--text-muted);
             text-align: center;
         }
         .destaques {
@@ -207,7 +208,7 @@
             margin-bottom: 12px;
         }
         .destaque-item p {
-            color: var(--muted);
+            color: var(--text-muted);
             font-size: 0.95rem;
         }
         .cta-final {
@@ -225,7 +226,7 @@
         .cta-final p {
             margin-bottom: 30px;
             font-size: 1.1rem;
-            color: var(--muted);
+            color: var(--text-muted);
         }
         footer {
             text-align: center;
@@ -234,16 +235,25 @@
         }
         footer p {
             font-size: 0.9rem;
-            color: var(--muted);
+            color: var(--text-muted);
             opacity: 0.7;
         }
         @media (max-width: 768px) {
             .hero-container {
                 grid-template-columns: 1fr;
+                grid-template-areas: 
+                    "imagem"
+                    "conteudo";
                 text-align: center;
+                gap: 20px;
+            }
+            .hero-image-wrapper {
+                grid-area: imagem;
+                align-items: center;
             }
             .hero-content {
-                padding-right: 0;
+                grid-area: conteudo;
+                padding-left: 0;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -261,7 +271,7 @@
                 max-width: 100%;
             }
             .hero-image {
-                max-width: 360px;
+                max-width: 320px;
             }
         }
     </style>
@@ -269,6 +279,13 @@
 <body>
     <section class="hero">
         <div class="hero-container">
+            <!-- FOTO AGORA VEM PRIMEIRO NO CELULAR -->
+            <div class="hero-image-wrapper">
+                <div class="hero-image-frame">
+                    <img src="foto-perfil.jpg" alt="Kathlem Karolinne" class="hero-image">
+                </div>
+            </div>
+
             <div class="hero-content">
                 <div class="logo">
                     <div class="logo-name">KATHLEM KAROLINNE</div>
@@ -280,11 +297,6 @@
                     <a href="https://wa.me/554599012210?text=Ol%C3%A1%2C%20Kathlem!%20Vim%20atrav%C3%A9s%20do%20seu%20site.%20Tenho%20interesse%20em%20conhecer%20suas%20solu%C3%A7%C3%B5es%20de%20cr%C3%A9dito%20e%20finan%C3%A7as.%20Pode%20me%20orientar%3F%20Agrade%C3%A7o%20desde%20j%C3%A1!%20%F0%9F%99%8F" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">💬 Falar no WhatsApp</a>
                     <a href="https://www.instagram.com/kathlem.karolinne.216684?stkn=MWR1eWIzbWY2YjFhNw==" target="_blank" rel="noopener noreferrer" class="btn btn-instagram">📸 Seguir no Instagram</a>
                     <a href="https://www.facebook.com/share/1cgLciWgzm/" target="_blank" rel="noopener noreferrer" class="btn btn-facebook">📘 Visitar no Facebook</a>
-                </div>
-            </div>
-            <div class="hero-image-wrapper">
-                <div class="hero-image-frame">
-                    <img src="foto-perfil.jpg" alt="Kathlem Karolinne" class="hero-image">
                 </div>
             </div>
         </div>
